@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Mulia Mahendra Alvanof</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #0f172a;
+            background-color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        /* ── Mesh gradient orbs (CatalyzeAI style: mint + sky + lavender) ── */
+        .bg-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            animation: floatOrb 18s infinite alternate ease-in-out;
+        }
+
+        .orb-1 {
+            top: -5%;
+            right: -10%;
+            width: 55vw;
+            height: 55vw;
+            background: #c8ffe8;
+            opacity: 0.55;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            bottom: 10%;
+            left: -10%;
+            width: 45vw;
+            height: 45vw;
+            background: #c8e8ff;
+            opacity: 0.50;
+            animation-delay: -6s;
+        }
+
+        .orb-3 {
+            top: 35%;
+            left: 20%;
+            width: 35vw;
+            height: 35vw;
+            background: #e4d9ff;
+            opacity: 0.28;
+            animation-delay: -12s;
+        }
+
+        @keyframes floatOrb {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(20px, -40px) scale(1.05);
+            }
+
+            100% {
+                transform: translate(-15px, 30px) scale(0.97);
+            }
+        }
+
+        /* ── Glass cards ── */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            border-top: 1px solid rgba(255, 255, 255, 1);
+            box-shadow: 0 8px 32px -8px rgba(0, 180, 110, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 48px -10px rgba(0, 180, 110, 0.13), 0 4px 16px rgba(0, 0, 0, 0.06);
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ── Video thumbnails ── */
+        .video-wrapper {
+            background: #0f172a;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.12);
+            transition: all 0.4s ease;
+        }
+
+        .video-wrapper:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 16px 32px -8px rgba(0, 180, 110, 0.25);
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: opacity 0.4s ease;
+        }
+
+        .video-wrapper:hover video {
+            opacity: 1;
+        }
+
+        /* Play button → green on hover */
+        .play-btn {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .play-btn-lg {
+            width: 4rem;
+            height: 4rem;
+        }
+
+        .video-wrapper:hover .play-btn {
+            background: rgba(0, 201, 123, 0.85);
+            border-color: #00c97b;
+            transform: scale(1.1);
+        }
+
+        /* ── Logo boxes ── */
+        .logo-box {
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .logo-box:hover {
+            background: #fff;
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 10px 24px -6px rgba(0, 180, 110, 0.15);
+            border-color: rgba(0, 201, 123, 0.3);
+        }
+
+        /* ── Language toggle ── */
+        .lang-active {
+            background-color: #ffffff;
+            color: #0f172a !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+        }
+
+        /* ── Section divider (green tint, CatalyzeAI feel) ── */
+        .divider-line {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #bbf7d0, #6ee7b7, #bbf7d0, transparent);
+        }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #a7f3d0;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00c97b;
+        }
+    </style>
+</head>
+
+<body class="antialiased pb-24 selection:bg-emerald-400 selection:text-white relative">
+
+    <!-- Mesh Gradient Orbs (CatalyzeAI style) -->
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+
+    <div class="max-w-5xl mx-auto px-6 pt-16 sm:pt-24 relative z-10">
+
+        <!-- 1. Hero Section -->
+        <div class="flex flex-col items-center pb-16 mb-20 relative">
+
+            <!-- "Available for work" badge — green dot -->
+            <div
+                class="mb-8 px-4 py-2 rounded-full glass-card text-xs font-bold tracking-widest uppercase text-emerald-600 flex items-center gap-2">
+                <span class="relative flex h-3 w-3">
+                    <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                </span>
+                Available for work
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center sm:items-end gap-6 sm:gap-12">
+                <!-- Photo -->
+                <div class="relative w-48 h-48 sm:w-64 sm:h-64 flex-shrink-0">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-emerald-200 to-teal-100 rounded-2xl blur-2xl opacity-80">
+                    </div>
+                    <img src="assets/images/hero-profile.jpg"
+                        alt="Foto Profil Mulia"
+                        class="relative z-10 w-full h-full object-cover rounded-2xl drop-shadow-2xl" />
+                </div>
+
+                <!-- Name + intro -->
+                <div class="flex flex-col justify-between h-auto sm:h-64 pb-2 sm:pb-4 text-center sm:text-left">
+                    <p class="text-xl sm:text-2xl font-semibold text-slate-500 tracking-tight mb-2 sm:mb-0"
+                        data-tr="hero_intro">Hi, I am</p>
+                    <h1 class="text-6xl sm:text-[5.5rem] font-black uppercase tracking-tighter leading-[0.9] bg-clip-text text-transparent bg-gradient-to-br from-slate-900 via-slate-800 to-slate-500"
+                        data-tr="hero_title">
+                        MULIA<br>MAHENDRA<br>ALVANOF
+                    </h1>
+                </div>
+            </div>
+
+            <!-- Language toggle -->
+            <div class="mt-14 flex flex-col items-center gap-4 relative z-20">
+                <p class="text-xl font-bold text-slate-700 tracking-wide" data-tr="lang_intro">I am fluent in these 2
+                    languages</p>
+                <div class="flex bg-white/40 backdrop-blur-md shadow-[0_4px_20px_rgb(0,0,0,0.04)] rounded-full p-1 border border-white/80"
+                    id="langToggle">
+                    <button id="btn-id"
+                        class="px-8 py-2.5 rounded-full text-sm font-bold text-slate-400 transition-all duration-300"
+                        onclick="setLang('id')">INDONESIA</button>
+                    <button id="btn-en"
+                        class="px-8 py-2.5 rounded-full text-sm font-bold lang-active transition-all duration-300"
+                        onclick="setLang('en')">ENGLISH</button>
+                </div>
+            </div>
+
+            <p class="mt-8 text-xl sm:text-2xl text-slate-700 font-bold tracking-tight text-center"
+                data-tr="hero_subtitle">And this is what I do</p>
+
+            <div class="mt-8 divider-line mb-8"></div>
+
+            <!-- 2. Content Creator -->
+            <div class="mb-24">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-6 mb-12">
+                    <div class="relative w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0">
+                        <div class="absolute inset-0 bg-emerald-200 rounded-2xl blur-xl opacity-70"></div>
+                        <img src="assets/images/cc-profile.jpg"
+                            alt="Foto Konten Kreator"
+                            class="relative z-10 w-full h-full object-cover rounded-2xl drop-shadow-xl" />
+                    </div>
+                    <h2 class="text-5xl sm:text-7xl font-black tracking-tighter" data-tr="role_cc">content creator</h2>
+                </div>
+
+                <p class="mb-6 text-slate-600 text-lg font-medium" data-tr="cc_desc1">I made short 2d animation tiktok
+                    videos<br><a href="#" target="_blank"
+                        class="text-black font-bold hover:text-emerald-600 hover:underline transition-colors"><i
+                            class="fa-brands fa-tiktok text-black mr-1"></i> Animasi mulmul</a> <span
+                        class="text-slate-500 text-sm bg-white/50 px-2 py-1 rounded-md border border-white">(600K+
+                        followers)</span></p>
+
+                <!-- TikTok portrait grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4 mb-12">
+                    <div class="video-wrapper aspect-[9/16]">
+                        <video src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" loop
+                            muted playsinline autoplay></video>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="play-btn"><i class="fa-solid fa-play text-white text-base ml-0.5"></i></div>
+                        </div>
+                    </div>
+                    <div class="video-wrapper aspect-[9/16]">
+                        <video src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" loop
+                            muted playsinline autoplay></video>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="play-btn"><i class="fa-solid fa-play text-white text-base ml-0.5"></i></div>
+                        </div>
+                    </div>
+                    <div class="video-wrapper aspect-[9/16]">
+                        <video src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" loop muted
+                            playsinline autoplay></video>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="play-btn"><i class="fa-solid fa-play text-white text-base ml-0.5"></i></div>
+                        </div>
+                    </div>
+                    <div class="video-wrapper aspect-[9/16]">
+                        <video src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" loop
+                            muted playsinline autoplay></video>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="play-btn"><i class="fa-solid fa-play text-white text-base ml-0.5"></i></div>
+                        </div>
+                    </div>
+                    <div class="video-wrapper aspect-[9/16] hidden sm:block">
+                        <video src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4" loop
+                            muted playsinline autoplay></video>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="play-btn"><i class="fa-solid fa-play text-white text-base ml-0.5"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mb-6 text-slate-600 text-lg font-medium" data-tr="cc_desc2">And its long form too<br><a
+                        href="#" target="_blank"
+                        class="text-black font-bold hover:text-red-600 hover:underline transition-colors"><i
+                            class="fa-brands fa-youtube text-red-600 mr-1"></i> Animasi mulmul</a> <span
+                        class="text-slate-500 text-sm bg-white/50 px-2 py-1 rounded-md border border-white">(70K+
+                        subscribers)</span></p>
+
+                <!-- YouTube landscape grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 mb-12">
+                    <div class="video-wrapper aspect-video">
+                        <video src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" loop muted
+                            playsinline autoplay></video>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="play-btn play-btn-lg"><i class="fa-solid fa-play text-white text-xl ml-0.5"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-wrapper aspect-video">
+                        <video src="https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" loop
+                            muted playsinline autoplay></video>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="play-btn play-btn-lg"><i class="fa-solid fa-play text-white text-xl ml-0.5"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-wrapper aspect-video">
+                        <video src="https://storage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" loop muted
+                            playsinline autoplay></video>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="play-btn play-btn-lg"><i class="fa-solid fa-play text-white text-xl ml-0.5"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mb-6 text-slate-600 text-lg font-medium" data-tr="cc_desc3">I also made short AI videos on my
+                    personal account<br><a href="#" target="_blank"
+                        class="text-black font-bold hover:text-emerald-600 hover:underline transition-colors"><i
+                            class="fa-brands fa-tiktok mr-1"></i><i class="fa-brands fa-instagram mr-2"></i>Mulia
+                        mahendra
+                        alvanof</a></p>
+
+                <!-- AI portrait grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4 mb-12">
+                    <div class="video-wrapper aspect-[9/16]">
+                        <video
+                            src="https://storage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4"
+                            loop muted playsinline autoplay></video>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="play-btn"><i class="fa-solid fa-play text-white text-base ml-0.5"></i></div>
+                        </div>
+                    </div>
+                    <div class="video-wrapper aspect-[9/16]">
+                        <video src="https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" loop muted
+                            playsinline autoplay></video>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="play-btn"><i class="fa-solid fa-play text-white text-base ml-0.5"></i></div>
+                        </div>
+                    </div>
+                    <div class="video-wrapper aspect-[9/16]">
+                        <video src="https://storage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4"
+                            loop muted playsinline autoplay></video>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="play-btn"><i class="fa-solid fa-play text-white text-base ml-0.5"></i></div>
+                        </div>
+                    </div>
+                    <div class="video-wrapper aspect-[9/16]">
+                        <video src="https://storage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4"
+                            loop muted playsinline autoplay></video>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="play-btn"><i class="fa-solid fa-play text-white text-base ml-0.5"></i></div>
+                        </div>
+                    </div>
+                    <div class="video-wrapper aspect-[9/16] hidden sm:block">
+                        <video
+                            src="https://storage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4"
+                            loop muted playsinline autoplay></video>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="play-btn"><i class="fa-solid fa-play text-white text-base ml-0.5"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quote box -->
+                <div class="relative mt-40 mb-12">
+                    <!-- Character peeking out (placed behind the box) -->
+                    <img src="assets/images/character.jpg"
+                        alt="Karakter"
+                        class="absolute -top-24 left-1/2 -translate-x-1/2 w-48 h-auto object-contain -z-10">
+
+                    <div class="glass-card p-8 sm:p-10 rounded-2xl relative overflow-hidden z-10">
+                        <div
+                            class="absolute -right-8 -top-8 text-9xl text-emerald-100 opacity-70 font-serif select-none leading-none">
+                            "</div>
+                        <p class="text-xl sm:text-2xl leading-relaxed text-slate-700 font-medium relative z-10 text-center"
+                            data-tr="cc_desc4">
+                            Tbh I'm kinda shy to post on my personal account, but in this time and age we need branding
+                            right? So I did it with those funny chickens that of course I made with AI, that's the
+                            point. I
+                            pretty much can use generative AI for content creation.
+                        </p>
+                    </div>
+                </div>
+
+                <p class="mb-6 text-slate-600 text-lg font-medium" data-tr="cc_desc5">And some other types of AI
+                    contents
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 mb-12">
+                    <div class="video-wrapper aspect-video">
+                        <video src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" loop muted
+                            playsinline autoplay></video>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="play-btn play-btn-lg"><i class="fa-solid fa-play text-white text-xl ml-0.5"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-wrapper aspect-video">
+                        <video src="https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" loop
+                            muted playsinline autoplay></video>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="play-btn play-btn-lg"><i class="fa-solid fa-play text-white text-xl ml-0.5"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-wrapper aspect-video">
+                        <video src="https://storage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" loop muted
+                            playsinline autoplay></video>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="play-btn play-btn-lg"><i class="fa-solid fa-play text-white text-xl ml-0.5"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Skills -->
+            <div class="mb-24">
+                <p class="mb-8 text-xl text-slate-600 font-semibold" data-tr="skill_intro">To make all those contents, I
+                    have my skills as</p>
+                <div class="flex flex-col gap-5 relative z-20">
+                    <!-- Video Editor -->
+                    <div
+                        class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-6 sm:gap-12 group hover:bg-white/60">
+                        <div class="flex items-center gap-6">
+                            <div
+                                class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-emerald-100 flex-shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-video"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-slate-900" data-tr="skill_1">Video editor</h3>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap items-center justify-start sm:justify-end gap-3 sm:gap-4 flex-1">
+                            <!-- Premiere Pro -->
+                            <div
+                                class="flex items-center gap-3 bg-white/70 backdrop-blur px-4 sm:px-5 py-3 rounded-2xl border border-white shadow-sm hover:shadow-md transition-all">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-[#00005b] text-[#9999ff] flex items-center justify-center font-bold text-sm tracking-tighter border border-[#9999ff]/30">
+                                    Pr</div>
+                                <span class="font-bold text-slate-700">Premiere Pro</span>
+                            </div>
+                            <!-- CapCut -->
+                            <div
+                                class="flex items-center gap-3 bg-white/70 backdrop-blur px-4 sm:px-5 py-3 rounded-2xl border border-white shadow-sm hover:shadow-md transition-all">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center text-sm border border-slate-700">
+                                    <i class="fa-solid fa-scissors"></i>
+                                </div>
+                                <span class="font-bold text-slate-700">CapCut</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Graphic Design -->
+                    <div
+                        class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-6 sm:gap-12 group hover:bg-white/60">
+                        <div class="flex items-center gap-6">
+                            <div
+                                class="w-16 h-16 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-teal-100 flex-shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-pen-nib"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-slate-900" data-tr="skill_2">Graphic design</h3>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap items-center justify-start sm:justify-end gap-3 sm:gap-4 flex-1">
+                            <!-- Illustrator -->
+                            <div
+                                class="flex items-center gap-3 bg-white/70 backdrop-blur px-4 sm:px-5 py-3 rounded-2xl border border-white shadow-sm hover:shadow-md transition-all">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-[#330000] text-[#ff9a00] flex items-center justify-center font-bold text-sm tracking-tighter border border-[#ff9a00]/30">
+                                    Ai</div>
+                                <span class="font-bold text-slate-700">Illustrator</span>
+                            </div>
+                            <!-- Photoshop -->
+                            <div
+                                class="flex items-center gap-3 bg-white/70 backdrop-blur px-4 sm:px-5 py-3 rounded-2xl border border-white shadow-sm hover:shadow-md transition-all">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-[#001e36] text-[#31a8ff] flex items-center justify-center font-bold text-sm tracking-tighter border border-[#31a8ff]/30">
+                                    Ps</div>
+                                <span class="font-bold text-slate-700">Photoshop</span>
+                            </div>
+                            <!-- Canva -->
+                            <div
+                                class="flex items-center gap-3 bg-white/70 backdrop-blur px-4 sm:px-5 py-3 rounded-2xl border border-white shadow-sm hover:shadow-md transition-all">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#00c4cc] to-[#7d2ae8] text-white flex items-center justify-center font-bold text-sm tracking-tighter border border-white/30">
+                                    C</div>
+                                <span class="font-bold text-slate-700">Canva</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2D Animation -->
+                    <div
+                        class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-6 sm:gap-12 group hover:bg-white/60">
+                        <div class="flex items-center gap-6">
+                            <div
+                                class="w-16 h-16 bg-cyan-50 text-cyan-600 rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-cyan-100 flex-shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-cube"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-slate-900" data-tr="skill_3">2D animation</h3>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap items-center justify-start sm:justify-end gap-3 sm:gap-4 flex-1">
+                            <!-- Animate -->
+                            <div
+                                class="flex items-center gap-3 bg-white/70 backdrop-blur px-4 sm:px-5 py-3 rounded-2xl border border-white shadow-sm hover:shadow-md transition-all">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-[#340000] text-[#ff4c4c] flex items-center justify-center font-bold text-sm tracking-tighter border border-[#ff4c4c]/30">
+                                    An</div>
+                                <span class="font-bold text-slate-700">Animate</span>
+                            </div>
+                            <!-- Character Animator -->
+                            <div
+                                class="flex items-center gap-3 bg-white/70 backdrop-blur px-4 sm:px-5 py-3 rounded-2xl border border-white shadow-sm hover:shadow-md transition-all">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-[#2b0051] text-[#d3a8ff] flex items-center justify-center font-bold text-sm tracking-tighter border border-[#d3a8ff]/30">
+                                    Ch</div>
+                                <span class="font-bold text-slate-700">Character Animator</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider-line mb-24"></div>
+
+            <!-- 4. Social Media Specialist -->
+            <div class="mb-24">
+                <p class="mb-12 text-2xl text-slate-700 font-semibold leading-relaxed" data-tr="sms_intro">As a content
+                    creator, I also manage my own social media.<br>Which means I work as my own</p>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-6 mb-12">
+                    <div class="relative w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0">
+                        <div class="absolute inset-0 bg-teal-200 rounded-2xl blur-xl opacity-70"></div>
+                        <img src="assets/images/sms-profile.jpg"
+                            alt="Foto Social Media"
+                            class="relative z-10 w-full h-full object-cover rounded-2xl drop-shadow-xl" />
+                    </div>
+                    <h2 class="text-5xl sm:text-7xl font-black tracking-tighter" data-tr="role_sms">social media
+                        specialist
+                    </h2>
+                </div>
+                <div class="flex flex-col gap-6">
+                    <div class="glass-card p-8 sm:p-10 rounded-2xl relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <i class="fa-solid fa-chess-knight text-8xl text-emerald-600"></i>
+                        </div>
+                        <h3 class="font-bold text-2xl mb-8 text-slate-900 flex items-center gap-3 relative z-10"
+                            data-tr="sms_strat">
+                            <div
+                                class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 text-sm shadow-sm border border-emerald-100">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                            Building strategy with:
+                        </h3>
+                        <ul class="space-y-4 text-slate-600 text-lg relative z-10" id="sms_strat_list">
+                            <li class="flex items-start gap-4">
+                                <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                                <div class="flex flex-col">
+                                    <strong class="text-slate-900 mb-1">Platform Analytics</strong>
+                                    <span class="text-base">Google Analytics, TikTok Studio, Meta Business Suite,
+                                        YouTube
+                                        Studio</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                                <div class="flex flex-col">
+                                    <strong class="text-slate-900 mb-1">Content Calendar Planning</strong>
+                                    <span class="text-base">Scheduling and organizing content themes, posting times, and
+                                        campaign timelines</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                                <div class="flex flex-col">
+                                    <strong class="text-slate-900 mb-1">A/B Testing & Competitor Research</strong>
+                                    <span class="text-base">Analyzing audience preferences and monitoring market trends
+                                        for
+                                        better performance</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="glass-card p-8 sm:p-10 rounded-2xl relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <i class="fa-solid fa-users text-8xl text-emerald-600"></i>
+                        </div>
+                        <h3 class="font-bold text-2xl mb-8 text-slate-900 flex items-center gap-3 relative z-10"
+                            data-tr="sms_eng">
+                            <div
+                                class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 text-sm shadow-sm border border-emerald-100">
+                                <i class="fa-solid fa-rocket"></i>
+                            </div>
+                            Growing engagement through:
+                        </h3>
+                        <ul class="space-y-4 text-slate-600 text-lg relative z-10" id="sms_eng_list">
+                            <li class="flex items-start gap-4">
+                                <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                                <div class="flex flex-col">
+                                    <strong class="text-slate-900 mb-1">Copywriting & Caption Writing</strong>
+                                    <span class="text-base">Crafting engaging hooks and storytelling tailored for
+                                        specific
+                                        social media audiences</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                                <div class="flex flex-col">
+                                    <strong class="text-slate-900 mb-1">Hashtag Research</strong>
+                                    <span class="text-base">Finding relevant, trending, and niche tags to maximize
+                                        discoverability</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                                <div class="flex flex-col">
+                                    <strong class="text-slate-900 mb-1">Content SEO</strong>
+                                    <span class="text-base">Keywords optimization, video descriptions, and alt texts for
+                                        search algorithms</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                                <div class="flex flex-col">
+                                    <strong class="text-slate-900 mb-1">Scripting for video</strong>
+                                    <span class="text-base">Writing well-structured scenarios with strong retention
+                                        strategies</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Brands -->
+            <div class="mb-24">
+                <p class="mb-8 text-xl text-slate-600 font-semibold" data-tr="brand_intro">I have worked with some
+                    brands,
+                    such as</p>
+                <div class="grid grid-cols-3 sm:grid-cols-7 gap-4 sm:gap-6 mb-6">
+                    <div class="logo-box aspect-square flex items-center justify-center p-2"><span
+                            class="text-sm font-bold text-slate-500 text-center">Bilibili</span></div>
+                    <div class="logo-box aspect-square flex items-center justify-center p-2"><span
+                            class="text-sm font-bold text-slate-500 text-center">SnackVideo</span></div>
+                    <div class="logo-box aspect-square flex items-center justify-center p-2"><span
+                            class="text-sm font-bold text-slate-500 text-center">Nikke</span></div>
+                    <div class="logo-box aspect-square flex items-center justify-center p-2"><span
+                            class="text-sm font-bold text-slate-500 text-center">WePlay</span></div>
+                    <div class="logo-box aspect-square flex items-center justify-center p-2"><span
+                            class="text-sm font-bold text-slate-500 text-center">Membit</span></div>
+                    <div class="logo-box aspect-square flex items-center justify-center p-2"><span
+                            class="text-sm font-bold text-slate-500 text-center">KiteAI</span></div>
+                    <div class="logo-box aspect-square flex items-center justify-center p-2"><span
+                            class="text-sm font-bold text-slate-500 text-center">IO NET</span></div>
+                </div>
+            </div>
+
+            <!-- 6. Education -->
+            <div class="mb-24">
+                <p class="mb-8 text-xl text-slate-600 font-semibold" data-tr="edu_intro">I learned most of these by
+                    myself,
+                    but I also have a degree</p>
+                <div class="glass-card p-8 sm:p-10 rounded-2xl flex flex-col sm:flex-row sm:items-center gap-8">
+                    <div class="relative w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0">
+                        <div class="absolute inset-0 bg-emerald-200 rounded-2xl blur-xl opacity-70"></div>
+                        <img src="assets/images/edu-profile.jpg"
+                            alt="Foto Edukasi"
+                            class="relative z-10 w-full h-full object-cover rounded-2xl drop-shadow-xl" />
+                    </div>
+                    <div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3" data-tr="role_edu">Bachelor
+                            of
+                            Computer Science</h2>
+                        <p class="text-lg text-slate-600 font-medium flex flex-wrap items-center gap-3"
+                            id="edu_detail_container">
+                            <span>Studied at University of Malikussaleh</span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+                            <span>Graduated 2024</span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+                            <span class="font-bold text-slate-900">GPA: 3.76 / 4.00</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Footer / Let's Connect -->
+            <div class="mt-32 pb-10">
+                <div class="glass-card text-slate-900 p-10 sm:p-16 rounded-2xl relative overflow-hidden">
+                    <!-- Green orb accents inside footer -->
+                    <div
+                        class="absolute top-[-50%] right-[-10%] w-96 h-96 bg-emerald-200 rounded-full mix-blend-multiply filter blur-[80px] opacity-50">
+                    </div>
+                    <div
+                        class="absolute bottom-[-50%] left-[-10%] w-96 h-96 bg-teal-200 rounded-full mix-blend-multiply filter blur-[80px] opacity-50">
+                    </div>
+
+                    <div
+                        class="relative z-10 flex flex-col sm:flex-row justify-between items-center gap-12 text-center sm:text-left">
+                        <div>
+                            <h3 class="text-5xl font-black mb-4 tracking-tighter" data-tr="footer_title">Let's Connect!
+                            </h3>
+                            <p class="text-slate-600 text-lg font-medium" data-tr="footer_intro">That's pretty much all
+                                of
+                                me as a content creator.<br>These are my personal contacts</p>
+                        </div>
+                        <div class="flex flex-col gap-4 w-full sm:w-auto">
+                            <a href="mailto:alvanofid@gmail.com"
+                                class="flex items-center justify-center sm:justify-start gap-4 bg-white/60 hover:bg-white/90 backdrop-blur-md px-8 py-4 rounded-2xl transition-all hover:-translate-y-1 hover:shadow-lg border border-white/80 text-slate-700 group">
+                                <i
+                                    class="fa-solid fa-envelope text-emerald-500 text-xl group-hover:scale-110 transition-transform"></i>
+                                <span class="font-semibold">alvanofid@gmail.com</span>
+                            </a>
+                            <a href="https://wa.me/6282214816134" target="_blank" rel="noopener"
+                                class="flex items-center justify-center sm:justify-start gap-4 bg-white/60 hover:bg-white/90 backdrop-blur-md px-8 py-4 rounded-2xl transition-all hover:-translate-y-1 hover:shadow-lg border border-white/80 text-slate-700 group">
+                                <i
+                                    class="fa-brands fa-whatsapp text-emerald-500 text-2xl group-hover:scale-110 transition-transform"></i>
+                                <span class="font-semibold">+62 822-1481-6134</span>
+                            </a>
+                            <a href="https://instagram.com/alvanof_" target="_blank" rel="noopener"
+                                class="flex items-center justify-center sm:justify-start gap-4 bg-white/60 hover:bg-white/90 backdrop-blur-md px-8 py-4 rounded-2xl transition-all hover:-translate-y-1 hover:shadow-lg border border-white/80 text-slate-700 group">
+                                <i
+                                    class="fa-brands fa-instagram text-emerald-500 text-2xl group-hover:scale-110 transition-transform"></i>
+                                <span class="font-semibold">@alvanof_</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center text-slate-400 text-sm mt-10 font-medium">&copy; 2025 Mulia Mahendra Alvanof.
+                    Designed
+                    with style.</p>
+            </div>
+
+        </div>
+
+        <script>
+            const translations = {
+                en: {
+                    hero_intro: "Hi, I am",
+                    hero_title: "MULIA<br>MAHENDRA<br>ALVANOF",
+                    hero_subtitle: "And this is what I do",
+                    role_cc: "content creator",
+                    cc_desc1: "I made short 2d animation tiktok videos<br><a href='#' target='_blank' class='text-black font-bold hover:text-emerald-600 hover:underline transition-colors'><i class='fa-brands fa-tiktok text-black mr-1'></i> Animasi mulmul</a> <span class='text-slate-500 text-sm bg-white/50 px-2 py-1 rounded-md border border-white'>(600K+ followers)</span>",
+                    cc_desc2: "And its long form too<br><a href='#' target='_blank' class='text-black font-bold hover:text-red-600 hover:underline transition-colors'><i class='fa-brands fa-youtube text-red-600 mr-1'></i> Animasi mulmul</a> <span class='text-slate-500 text-sm bg-white/50 px-2 py-1 rounded-md border border-white'>(70K+ subscribers)</span>",
+                    cc_desc3: "I also made short AI videos on my personal account<br><a href='#' target='_blank' class='text-black font-bold hover:text-emerald-600 hover:underline transition-colors'><i class='fa-brands fa-tiktok mr-1'></i><i class='fa-brands fa-instagram mr-2'></i>Mulia mahendra alvanof</a>",
+                    cc_desc4: "Tbh I'm kinda shy to post on my personal account, but in this time and age we need branding right? So I did it with those funny chickens that of course I made with AI, that's the point. I pretty much can use generative AI for content creation.",
+                    cc_desc5: "And some other types of AI contents",
+                    skill_intro: "To make all those contents, I have my skills as",
+                    skill_1: "Video editor", skill_2: "Graphic design", skill_3: "2D animation",
+                    sms_intro: "As a content creator, I also manage my own social media.<br>Which means I work as my own",
+                    role_sms: "social media specialist",
+                    sms_strat: "<div class='w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 text-sm border border-emerald-100 shadow-sm'><i class='fa-solid fa-lightbulb'></i></div> Building strategy with:",
+                    sms_strat_list: "<li class='flex gap-4 items-start'><i class='fa-solid fa-check text-emerald-500 mt-1'></i><div class='flex flex-col'><strong class='text-slate-900 mb-1'>Analitik Platform</strong><span class='text-base'>Google Analytics, TikTok Studio, Meta Business Suite, YouTube Studio</span></div></li><li class='flex gap-4 items-start'><i class='fa-solid fa-check text-emerald-500 mt-1'></i><div class='flex flex-col'><strong class='text-slate-900 mb-1'>Perencanaan Kalender Konten</strong><span class='text-base'>Mengatur jadwal post, tema konten, dan lini masa kampanye media sosial</span></div></li><li class='flex gap-4 items-start'><i class='fa-solid fa-check text-emerald-500 mt-1'></i><div class='flex flex-col'><strong class='text-slate-900 mb-1'>A/B Testing &amp; Riset Kompetitor</strong><span class='text-base'>Menganalisis preferensi audiens dan memantau tren pasar untuk performa optimal</span></div></li>",
+                    sms_eng: "<div class='w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 text-sm border border-emerald-100 shadow-sm'><i class='fa-solid fa-rocket'></i></div> Growing engagement through:",
+                    sms_eng_list: "<li class='flex gap-4 items-start'><i class='fa-solid fa-check text-emerald-500 mt-1'></i><div class='flex flex-col'><strong class='text-slate-900 mb-1'>Copywriting &amp; Penulisan Caption</strong><span class='text-base'>Membuat kalimat pemancing (hook) dan cerita menarik khusus audiens setiap medsos</span></div></li><li class='flex gap-4 items-start'><i class='fa-solid fa-check text-emerald-500 mt-1'></i><div class='flex flex-col'><strong class='text-slate-900 mb-1'>Riset Hashtag</strong><span class='text-base'>Mencari tagar yang relevan, sedang tren, dan spesifik agar mudah ditemukan</span></div></li><li class='flex gap-4 items-start'><i class='fa-solid fa-check text-emerald-500 mt-1'></i><div class='flex flex-col'><strong class='text-slate-900 mb-1'>SEO Konten</strong><span class='text-base'>Optimasi kata kunci, deskripsi video, dan teks alternatif (alt text) untuk algoritma</span></div></li><li class='flex gap-4 items-start'><i class='fa-solid fa-check text-emerald-500 mt-1'></i><div class='flex flex-col'><strong class='text-slate-900 mb-1'>Scripting untuk video</strong><span class='text-base'>Menulis naskah video terstruktur yang dirancang untuk menjaga durasi tonton (retensi)</span></div></li>",
+                    brand_intro: "I have worked with some brands, such as",
+                    edu_intro: "I learned most of these by myself, but I also have a degree",
+                    role_edu: "Bachelor of Computer Science",
+                    edu_detail: "<span>Studied at University of Malikussaleh</span> <span class='w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block'></span> <span>Graduated 2024</span> <span class='w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block'></span> <span class='font-bold text-slate-900'>GPA: 3.76 / 4.00</span>",
+                    lang_intro: "I am fluent in these 2 languages",
+                    footer_title: "Let's Connect!",
+                    footer_intro: "That's pretty much all of me as a content creator.<br>These are my personal contacts"
+                },
+                id: {
+                    hero_intro: "Halo, saya",
+                    hero_title: "MULIA<br>MAHENDRA<br>ALVANOF",
+                    hero_subtitle: "Dan inilah yang saya kerjakan",
+                    role_cc: "kreator konten",
+                    cc_desc1: "Saya membuat video animasi 2D pendek di TikTok<br><a href='#' target='_blank' class='text-black font-bold hover:text-emerald-600 hover:underline transition-colors'><i class='fa-brands fa-tiktok text-black mr-1'></i> Animasi mulmul</a> <span class='text-slate-500 text-sm bg-white/50 px-2 py-1 rounded-md border border-white'>(600K+ pengikut)</span>",
+                    cc_desc2: "Dan format panjangnya juga<br><a href='#' target='_blank' class='text-black font-bold hover:text-red-600 hover:underline transition-colors'><i class='fa-brands fa-youtube text-red-600 mr-1'></i> Animasi mulmul</a> <span class='text-slate-500 text-sm bg-white/50 px-2 py-1 rounded-md border border-white'>(70K+ pelanggan)</span>",
+                    cc_desc3: "Saya juga membuat video AI pendek di akun pribadi saya<br><a href='#' target='_blank' class='text-black font-bold hover:text-emerald-600 hover:underline transition-colors'><i class='fa-brands fa-tiktok mr-1'></i><i class='fa-brands fa-instagram mr-2'></i>Mulia mahendra alvanof</a>",
+                    cc_desc4: "Sejujurnya saya agak malu memposting di akun pribadi, tapi di zaman sekarang kita butuh branding kan? Jadi saya melakukannya dengan ayam lucu yang tentu saja saya buat dengan AI, itulah intinya. Saya pada dasarnya bisa menggunakan AI generatif untuk pembuatan konten.",
+                    cc_desc5: "Dan beberapa jenis konten AI lainnya",
+                    skill_intro: "Untuk membuat semua konten tersebut, saya memiliki keahlian sebagai",
+                    skill_1: "Editor video", skill_2: "Desain grafis", skill_3: "Animasi 2D",
+                    sms_intro: "Sebagai kreator konten, saya juga mengelola media sosial saya sendiri.<br>Yang berarti saya bekerja sebagai",
+                    role_sms: "spesialis media sosial",
+                    sms_strat: "<div class='w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 text-sm border border-emerald-100 shadow-sm'><i class='fa-solid fa-lightbulb'></i></div> Membangun strategi dengan:",
+                    sms_strat_list: "<li class='flex gap-4 items-start'><i class='fa-solid fa-check text-emerald-500 mt-1'></i><div class='flex flex-col'><strong class='text-slate-900 mb-1'>Analitik Platform</strong><span class='text-base'>Google Analytics, TikTok Studio, Meta Business Suite, YouTube Studio</span></div></li><li class='flex gap-4 items-start'><i class='fa-solid fa-check text-emerald-500 mt-1'></i><div class='flex flex-col'><strong class='text-slate-900 mb-1'>Perencanaan Kalender Konten</strong><span class='text-base'>Mengatur jadwal post, tema konten, dan lini masa kampanye media sosial</span></div></li><li class='flex gap-4 items-start'><i class='fa-solid fa-check text-emerald-500 mt-1'></i><div class='flex flex-col'><strong class='text-slate-900 mb-1'>A/B Testing &amp; Riset Kompetitor</strong><span class='text-base'>Menganalisis preferensi audiens dan memantau tren pasar untuk performa optimal</span></div></li>",
+                    sms_eng: "<div class='w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 text-sm border border-emerald-100 shadow-sm'><i class='fa-solid fa-rocket'></i></div> Meningkatkan interaksi melalui:",
+                    sms_eng_list: "<li class='flex gap-4 items-start'><i class='fa-solid fa-check text-emerald-500 mt-1'></i><div class='flex flex-col'><strong class='text-slate-900 mb-1'>Copywriting &amp; Penulisan Caption</strong><span class='text-base'>Membuat kalimat pemancing (hook) dan cerita menarik khusus audiens setiap medsos</span></div></li><li class='flex gap-4 items-start'><i class='fa-solid fa-check text-emerald-500 mt-1'></i><div class='flex flex-col'><strong class='text-slate-900 mb-1'>Riset Hashtag</strong><span class='text-base'>Mencari tagar yang relevan, sedang tren, dan spesifik agar mudah ditemukan</span></div></li><li class='flex gap-4 items-start'><i class='fa-solid fa-check text-emerald-500 mt-1'></i><div class='flex flex-col'><strong class='text-slate-900 mb-1'>SEO Konten</strong><span class='text-base'>Optimasi kata kunci, deskripsi video, dan teks alternatif (alt text) untuk algoritma</span></div></li><li class='flex gap-4 items-start'><i class='fa-solid fa-check text-emerald-500 mt-1'></i><div class='flex flex-col'><strong class='text-slate-900 mb-1'>Scripting untuk video</strong><span class='text-base'>Menulis naskah video terstruktur yang dirancang untuk menjaga durasi tonton (retensi)</span></div></li>",
+                    brand_intro: "Saya pernah bekerja sama dengan beberapa brand, seperti",
+                    edu_intro: "Saya mempelajari sebagian besar hal ini secara otodidak, tetapi saya juga memiliki gelar",
+                    role_edu: "Sarjana Teknik Informatika",
+                    edu_detail: "<span>Belajar di Universitas Malikussaleh</span> <span class='w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block'></span> <span>Lulus 2024</span> <span class='w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block'></span> <span class='font-bold text-slate-900'>IPK: 3,76 / 4,00</span>",
+                    lang_intro: "Aku fasih 2 bahasa ini",
+                    footer_title: "Mari Terhubung!",
+                    footer_intro: "Itulah sekilas tentang saya sebagai kreator konten.<br>Ini adalah kontak pribadi saya"
+                }
+            };
+
+            function setLang(lang) {
+                ['btn-id', 'btn-en'].forEach(id => {
+                    document.getElementById(id).classList.remove('lang-active');
+                    document.getElementById(id).classList.add('text-slate-400');
+                });
+                const active = lang === 'id' ? 'btn-id' : 'btn-en';
+                document.getElementById(active).classList.add('lang-active');
+                document.getElementById(active).classList.remove('text-slate-400');
+
+                document.querySelectorAll('[data-tr]').forEach(el => {
+                    const key = el.getAttribute('data-tr');
+                    if (translations[lang][key]) el.innerHTML = translations[lang][key];
+                });
+                document.getElementById('sms_strat_list').innerHTML = translations[lang]['sms_strat_list'];
+                document.getElementById('sms_eng_list').innerHTML = translations[lang]['sms_eng_list'];
+                document.getElementById('edu_detail_container').innerHTML = translations[lang]['edu_detail'];
+            }
+        </script>
+</body>
+
+</html>
